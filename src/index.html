@@ -1,0 +1,288 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Triton/Trisus in oil refinery</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="./css/vendor/reset.css">
+  <link rel="stylesheet" href="./css/vendor/tachyons.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <meta name="theme-color" content="#fafafa">
+  </head>
+  <body>
+  <div id="dataviz">
+    <div class="content">
+        <h3> Industrial control systems connected to internet</h3>
+        <p>In 2019 there are <a href="https://www.shodan.io/search?query=ics">            approximately 3500 industrial control systems connected to Internet.</a> These range from individual computers controlling machines directly to systems controlling and monitoring bigger geographical areas.
+        </p>
+    </div>
+    <div class="img-wrapper">
+      <img src="img/icsmap.png">
+    </div>
+  </div>
+  <div id="reading_progress"></div>
+  <header>
+    <div class="content">
+          <h3> Triton/Trisus in the oil refinery</h3>
+          <p> Machines in factories around the world are nowadays controlled and monitored by computer systems known as industrial control systems these are often directly or indirectly connected to Internet. This makes the operation of a factory more convenient and efficient but at the same poses a considerable risk for the security of the factory.</p>
+          <p> In June 2017 an undisclosed oil refinery in Saudi Arabia shut down. At first the accident seemed to be caused by a malfunctioning equipment. A month later the refinery shut down again.</p>
+          <p id="instruction" class="bold">Explore the virtual actions, done by hackers known as <br>Triton Group, that led to the shutdown in the timeline below.</p>
+          <span class="bold">↓</span>
+    </div>
+    <div class="video_wrapper">
+      <video id="intro_video" autoplay loop muted>
+          <source src="video/flag.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+      </video>
+    </div>
+  </header>
+<div class="tl">
+  <div class="timeline-header"></div>
+  <ul class="timeline-layer-labels">
+    <li><h2 id="network_label">Refinery Network</h2></li>
+    <li><h2 id="controls_label">Refinery Machines</h2></li>
+    <li><h2 id="overview_label">Refinery Overview</h2></li>
+  </ul>
+  <!-- internet -->
+  <div class="timeline-container">
+    <ul class="layer" id="network-layer">
+      <li class="cell" id="firstCell" data-always-triggered data-corrupted-cell>
+        <div class="content with-image">
+          <img class="tgflag" src="./img/ico/tg200x200.png">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>Triton Group enters the network</h3>
+            <p data-willCorrupt> The group was named by investigators because of the tools that target Triconnex safety systems. Their origin is still doubtful, Fireye investigators attribute it to the government sponsored a russian research institute and other sources to Iran.</p>
+            <div class="cell-name" data-willCorrupt>
+              <span data-willCorrupt> layer 0 </span> <h6 data-willCorrupt> public internet</h6>
+            </div>
+          </div>
+        </div>
+        <div class="firewall-wrapper">
+          <h6>firewall</h6>
+          <div class="firewall-img"></div>
+        </div>
+       </li>
+  <!-- corporate net -->
+      <li class="cell corporate_network_cell" data-interactive-cell data-corrupted-cell data-triggerDistance="5.0">
+        <div class="content">
+          <h3 data-willCorrupt>2013 The initial breach</h3>
+          <p data-willCorrupt>The group compromises the corporate network of the refinery. The network connecting computers within refinery, however disconnected from the production machines in the facility. The group stays in the network looking for ways to get into the internal network </p>
+          <div class="cell-name" data-willCorrupt>
+            <span data-willCorrupt> layer 1 </span> <h6 data-willCorrupt> The refinery corporate network</h6>
+          </div>
+        </div>
+        <div class="firewall-wrapper">
+          <h6>firewall</h6>
+          <div class="firewall-img"></div>
+        </div>
+      </li>
+  <!-- buffer net -->
+      <li class="cell buffer_network_cell" data-interactive-cell data-corrupted-cell data-triggerDistance="12.0">
+        <div class="content">
+          <h3 data-willCorrupt class="hidden">_</h3>
+          <p data-willCorrupt>The group breaches buffer network between corporate and internal network. The buffer network is another layer of security mainting separation between the two networks. This didn't stop group because of bad firewall and general network configuration of the refinery.</p>
+          <div class="cell-name" data-willCorrupt>
+            <span data-willCorrupt> layer 2 </span> <h6 data-willCorrupt> The buffer network</h6>
+          </div>
+        </div>
+        <div class="firewall-wrapper">
+          <h6>firewall</h6>
+          <div class="firewall-img"></div>
+        </div>
+      </li>
+  <!-- internal network -->
+      <li class="cell internal_network_cell" data-interactive-cell data-corrupted-cell data-triggerDistance="17.0">
+        <div class="content">
+          <h3 data-willCorrupt> The group breaches the internal network</h3>
+          <p data-willCorrupt>Using custom made Triton framework and off the shelve software tools the group compromises the internal network. Once inside, an engineer’s laptop connected to one of the safety controllers is infected.</p>
+          <div class="cell-name" data-willCorrupt>
+            <span data-willCorrupt> layer 3 </span> <h6 data-willCorrupt> The internal network</h6>
+          </div>
+        </div>
+      </li>
+      <li class="cell internal_network_cell "></li>
+      <li class="cell internal_network_cell"></li>
+      <li class="cell internal_network_cell" data-interactive-cell data-corrupted-cell data-triggerDistance="36.0">
+        <div class="content with-image">
+          <img class="tgflag" src="./img/ico/tg200x200.png">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>June 2017 The group triggers the malware</h3>
+            <p data-willCorrupt>After 4 years of seemingly no activity the group communicates with the infected laptop.</p>
+          </div>
+        </div>
+      </li>
+      <li class="cell internal_network_cell" data-interactive-cell data-corrupted-cell data-triggerDistance="43.0">
+        <div class="content with-image">
+          <div class="text-content" data-willCorrupt>
+        </div></li>
+      <li class="cell internal_network_cell" data-interactive-cell data-corrupted-cell data-triggerDistance="47.0">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/dcs.png">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>The unaware control & monitoring system</h3>
+            <p data-willCorrupt>The system responsible for monitoring and control (known as Distributed Control System) of the machine doesn't report any problems. </p>
+          </div>
+        </div>
+      </li>
+      <li class="cell internal_network_cell" data-interactive-cell data-corrupted-cell data-triggerDistance="54.0">
+        <div class="content with-image">
+          <img class="tgflag" src="./img/ico/tg200x200.png">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>August 2017 The group triggers the malware again</h3>
+          </div>
+        </div>
+      </li>
+      <li class="cell internal_network_cell "></li>
+      <li class="cell internal_network_cell"></li>
+      <li class="cell internal_network_cell "></li>
+      <li class="cell internal_network_cell"></li>
+      <li class="cell internal_network_cell "></li>
+      <li class="cell internal_network_cell"></li>
+    </ul>
+
+  <!-- CONTROLS -->
+    <ul class="layer" id="controls-layer">
+      <li class="cell"></li>
+      <li class="cell"></li>
+      <li class="cell"></li>
+      <li class="cell" data-interactive-cell data-corrupted-cell data-triggerDistance="18.0">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/laptop.png">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>Gaining access to the safety systems</h3>
+            <p data-willCorrupt>The group uses remote access trojan or RAT malware to gain control over the laptop and devices connected to it. To hide itself the RAT pretends to be genuine Triconex application.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="cell" data-interactive-cell data-corrupted-cell data-triggerDistance="24.0">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/tricon.png">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>Triconnex Safety Instrumented System</h3>
+            <p data-willCorrupt> The laptop is used to program one of the Triconex safety systems responsible for monitoring and shutting down a production machine or the refinery if the machine's operation should become dangerous. The group can command the machine or write new programs into its firmware.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="cell">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/machine.png">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>Affecting a production machine</h3>
+            <p data-willCorrupt>The hackers can use the infected SIS to shutdown the production machine or reprogram it to allow unsafe state. In the worst case scenario this could lead to release of toxic hydrogen sulphide gases or explosion of high pressure, high temperature materials.</p>
+          </div>
+        </div>
+      </li>
+      <li class="cell" data-interactive-cell data-corrupted-cell data-triggerDistance="37.0">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/pipeline.png" class="pipeline">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>A bug in the malware</h3>
+            <p data-willCorrupt> An alleged bug in the malware caused the safety system to enter the fail safe state and shutdown the refinery</p>
+          </div>
+        </div>
+      </li>
+      <li class="cell">
+      <li class="cell">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/tricon.png" class="pipeline">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>No suspicions raised</h3>
+            <p data-willCorrupt> The shutdown is ascribed to the malfunctioning safety system rather than possibility of insider or outsider attack</p>
+          </div>
+        </div>
+      </li>
+      <li class="cell" data-interactive-cell data-corrupted-cell data-triggerDistance="55.0">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/6laptops.png">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>6 infected laptops & safety systems</h3>
+            <p data-willCorrupt> One of the safety machines enters fail safe state and shuts the refinery down again</p>
+          </div>
+        </div>
+      </li>
+      <li class="cell">
+        <div class="content">
+          <h3>Suspicions are raised and cyber security firms are called to investigate and clean up</h3>
+      </li>
+      <li class="cell "></li>
+      <li class="cell  "></li>
+      <li class="cell "></li>
+      <li class="cell  "></li>
+      <li class="cell "></li>
+     </ul>
+  <!-- OVERVIEW -->
+    <ul class="layer" id="overview-layer">
+      <li class="cell"> </li>
+
+      <li class="cell" >
+        <div class="content with-image">
+          <img src="./img/machines/refinery.png">
+          <div class="text-content">
+            <h3>2013 The refinery works as intended</h3>
+          </div>
+        </div>
+      </li>
+      <li class="cell"> </li>
+      <li class="cell"> </li>
+      <li class="cell"> </li>
+      <li class="cell"> </li>
+      <li class="cell" data-interactive-cell data-corrupted-cell data-triggerDistance="38.0">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/refinery.png" class="">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>June 2017 The refinery shuts down</h3>
+          </div>
+        </div>
+      </li>
+      <li class="cell" data-interactive-cell data-corrupted-cell data-triggerDistance="39.0">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/refinery.png">
+          <div class="text-content">
+            <h3 data-willCorrupt >Triconnex employees are called in to investigate</h3>
+          </div>
+        </div>
+      </li>
+      <li class="cell">
+        <div class="content with-image">
+          <img src="./img/machines/refinery.png">
+          <div class="text-content">
+            <h3>The refinery operations are restored</h3>
+          </div>
+        </div>
+      </li>
+      <li class="cell" data-interactive-cell data-corrupted-cell data-triggerDistance="56.0">
+        <div class="content with-image">
+          <img data-willCorrupt src="./img/machines/refinery.png" class="">
+          <div class="text-content" data-willCorrupt>
+            <h3 data-willCorrupt>August 2017 The refinery shuts down</h3>
+          </div>
+        </div>
+      </li>
+      <li class="cell">
+        <div class="content with-image">
+          <img src="./img/machines/refinery.png">
+          <div class="text-content">
+            <h3>The refinery operations are restored</h3>
+          </div>
+        </div>
+      </li>
+      <li class="cell"></li>
+      <li class="cell"></li>
+      <li class="cell"></li>
+      <li class="cell"></li>
+      <li class="cell"></li>
+     </ul>
+  </div>
+</div>
+  <script src="./js/vendor/lodash.min.js"></script>
+  <script src="./js/vendor/jquery.js"></script>
+  <script src="./js/vendor/horizontal-scroll.js"></script>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

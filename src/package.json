@@ -1,0 +1,27 @@
+{
+  "name": "multitimeline-horizontal-scrolling",
+  "version": "1.0.0",
+  "description": "based on https://github.com/corentinfardeau/horizontal-scroll.git",
+  "main": "js/main.js",
+  "scripts": {
+    "browser-sync": "browser-sync start --server --files './index.html, ./js/main.js, ./node_modules/horizontal-scroll/index.js, ./css/main.css, ./grid-test.html' --index './index.html'",
+    "watch-scss": "sass --watch ./scss/main.scss:./css/main.css",
+    "dev": "concurrently --kill-others \"npm run browser-sync\" \"npm run watch-scss\""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Matus Solcany",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Solcany/multi-timeline-horizontal-scrolling"
+  },
+  "homepage": "",
+  "devDependencies": {
+    "concurrently": "^3.4.0"
+  },
+  "dependencies": {
+    "npm": "^6.9.0"
+  }
+}

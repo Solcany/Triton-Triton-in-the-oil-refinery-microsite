@@ -1,0 +1,71 @@
+
+@font-face {
+  font-family: plexSansLight;
+  src: url(../fonts/IBMPlexSans-Light.ttf) format('truetype');
+
+}
+@font-face {
+  font-family: plexSansRegular;
+  src: url(../fonts/IBMPlexSans-Regular.ttf) format('truetype');
+
+}
+@font-face {
+  font-family: plexSansMedium;
+  src: url(../fonts/IBMPlexSans-Medium.ttf) format('truetype');
+
+}
+@font-face {
+  font-family: plexSansSemibold;
+  src: url(../fonts/IBMPlexSans-SemiBold.ttf) format('truetype');
+
+}
+@font-face {
+  font-family: plexSansBold;
+  src: url(../fonts/IBMPlexSans-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: plexSansRegularItalic;
+  src: url(../fonts/IBMPlexSans-Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: algerian;
+  src: url(../fonts/Algerian_Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'pxpirate';
+    src: url(../fonts/Pixel-Pirate.woff2) format('woff2'),
+        url(../fonts/Pixel-Pirate.woff) format('woff');
+}
+
+
+
+.plexSansLight {
+	font-family: 'plexSansLight', sans-serif;
+}
+
+.plexSansRegular {
+	font-family: 'plexSansRegular', sans-serif;
+}
+
+.plexSansRegularItalic {
+	font-family: 'plexSansRegularItalic', sans-serif;
+}
+
+.plexSansMedium {
+	font-family: 'plexSansMedium', sans-serif;
+}
+
+.plexSansSemibold {
+	font-family: 'plexSansSemibold', sans-serif;
+}
+
+.plexSansBold {
+	font-family: 'plexSansBold', sans-serif;
+}
+
+.text-lineHeight {
+	line-height: 1.4em;
+}

@@ -1,0 +1,460 @@
+@import './font-families.scss';
+@import './inline-icons.scss';
+
+$layers: 3;
+$layer-columns: 16;
+$layer-column-width: 750px;
+$layer-rows: 1;
+
+
+$network-layer-color: #8A8070;
+$network-layer-outline-color: #988F82;
+
+$controls-layer-color: #A89A84;
+$controls-layer-outline-color: #B7AC9B;
+
+$overview-layer-color: #BAAB96;
+$overview-layer-outline-color: #C3B8A9;
+
+$text-color: #000;
+$text-color-corrupted: #e8e8e8;
+
+$h1-color: #fff;
+$h3-color: #000;
+$h3-corrupted-color: #fff;
+$h5-color: #fff;
+$h6-color: #353129;
+$h6-corrupted-color: #E0E0E0;
+
+
+$text-size: 1em;
+$h1: 2.6em;
+$h2: 1.1em;
+$h3: $h2;
+$h5: 0.8em;
+$h6: 1em;
+
+$text-lineheight: 1.4em;
+
+$text-font: 'plexSansRegular', sans-serif;
+$text-font-bold: 'plexSansBold', sans-serif;
+$h3-font: 'plexSansMedium', sans-serif;
+$h5-font: 'plexSansRegular', sans-serif;
+$h6-font: 'plexSansRegular', sans-serif;
+$corrupted-font:'pxpirate', serif;
+
+
+header {
+	position: relative;
+	box-sizing: border-box;
+	border-top: none;	
+	height: 100vh;
+	width: 100%;
+	// overflow: hidden;
+	background-color: black;
+	// flex-wrap: no-wrap;
+
+	.content {
+		float: left;
+		z-index: 100;
+		height: 100%;
+		background-color: black;
+		display: inline-block;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 50px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: left;
+		width: 38%;
+
+		h3 {
+			font-family: 'plexSansBold';
+			font-size: 3em;
+			 text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: #ffffff;
+			margin-bottom: 0.5em;
+		}
+
+		p, span {
+			text-align: left;
+			font-family: $text-font;
+			font-size: 1.1em;
+			color: #e8e8e8;
+			line-height: 1.5em;
+			margin-bottom: 0;
+
+			&#instruction {
+				padding-top: 3em;
+				line-height: 1.4em;
+
+
+			}
+			&.bold {
+				font-family: 'plexSansSemibold';
+				font-size: 1.1em;
+			}
+		}
+	}
+
+	.video_wrapper {
+		display: inline-block;
+		height: 100%;
+		width: 55%;
+		padding-top: 2em;
+		padding: 3em;
+		padding-left: 0;
+		overflow: hidden;
+		video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: 1;
+		}
+	}
+}
+
+ #dataviz {
+ 	position: fixed;
+ 	z-index: 1000;
+ 	width: 100vw;
+ 	height: 100vh;
+ 	pointer-events: none;
+ 	opacity: 0.0;
+ 	background-color: black;
+ 	display: flex;
+ 	align-items: center;
+
+	.content {
+		float: left;
+		z-index: 100;
+		height: 100%;
+		background-color: black;
+		display: inline-block;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 50px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: left;
+		width: 30%;
+
+		h3 {
+			font-family: 'plexSansBold';
+			font-size: 1.2em;
+			 // text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: #ffffff;
+			margin-bottom: 0.5em;
+		}
+
+		p, span {
+			text-align: left;
+			font-family: $text-font;
+			font-size: 1.1em;
+			color: #e8e8e8;
+			line-height: 1.5em;
+			margin-bottom: 0;
+
+			a {
+				color: white;
+			}
+
+			&.bold {
+				font-family: 'plexSansSemibold';
+				font-size: 1.1em;
+			}
+		}
+	}
+
+	.img_wrapper {
+		width: 70%;
+	 	img {
+			z-index: 100;
+	 		// float: left;
+	 		pointer-events: none;
+	 	}
+	}
+}
+ 
+ #reading_progress {
+ 	position: fixed;
+ 	z-index: 999;
+ 	height: 4px;
+ 	width: 0%;
+ 	bottom: 0;
+ 	background-color: white;
+}
+.tl {
+	display: block;
+	position: relative;
+	box-sizing: border-box;
+	height: 100vh;
+
+	.timeline-header {
+		background-color: black;
+		position: relative;
+		height: 3vh;
+		width: 100%;
+	}
+
+	ul.timeline-layer-labels {
+		position: absolute;
+		z-index: 200;
+		height: 97vh;
+		left: 0;
+		top: 0;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat($layers, 1fr);
+		margin: 0;
+	    padding: 0;
+
+
+		li {
+				margin-top:0px;
+
+			h2 {
+				font-family: 'plexSansRegular', sans-serif;
+				font-size: $h2;
+				color: black;
+				display: inline;
+				padding: 0.6em 50px;
+				box-sizing: border-box;
+
+				&#network_label {
+					background-color: $network-layer-color;
+					border-top: 1px solid $network-layer-outline-color;
+					border-right: 1px solid $network-layer-outline-color;
+
+
+				}
+				&#controls_label {
+					background-color: $controls-layer-color;
+					border-top: 1px solid $controls-layer-outline-color;
+					border-right: 1px solid $controls-layer-outline-color;
+				}
+				&#overview_label {
+					background-color: $overview-layer-color;
+					border-top: 1px solid $overview-layer-outline-color;
+					border-right: 1px solid $overview-layer-outline-color;
+				}
+			}
+		}
+	}
+
+
+
+	.timeline-container {
+		position: relative;
+
+	  	.timeline {
+			display: grid;
+			padding: 0;
+			margin: 0;
+			height: 97vh;
+			background-color: yellow;
+			grid-template-columns: repeat(1, 1fr);
+		  	grid-template-rows: repeat($layers, minmax(0, 1fr));
+
+		  	ul.layer {
+			    	padding-inline-start: 0;
+			    	margin: 0;
+		  			display: grid;
+					grid-template-columns: repeat($layer-columns, $layer-column-width);
+
+					&#network-layer {
+						border-top: 1px solid $network-layer-outline-color;
+						background-color: $network-layer-color;
+
+						li.cell {
+
+							div.firewall-wrapper {
+								position: absolute;
+								right: 0;
+								top: 0;
+								height: 100%;
+								width: 20px;
+
+								h6 {
+									font-family: 'plexSansLight';
+									letter-spacing: 0.2em;
+									font-size: 0.9em;
+									text-transform: uppercase;
+									color: black;
+									position: absolute;
+									margin: 0;
+									right: -5px;
+									bottom: 50%;
+									transform: rotate(270deg);
+								}
+
+								div.firewall-img {
+									height: 100%;
+									width:100%;
+									background-image: url("../img/firewall.png");
+									background-size: cover;
+								}
+							}
+						}
+					}
+
+					&#controls-layer {
+						border-top: 1px solid $controls-layer-outline-color;
+						background-color: $controls-layer-color;
+					}
+
+					&#overview-layer {
+						border-top: 1px solid $controls-layer-outline-color;
+						background-color: $overview-layer-color;
+					}
+
+		  			li.cell {
+		  				width: 100%;
+		  				background-color: none;
+		  				transition: all .2s;
+		  	 			grid-column: span 1;
+		  	 			border-right: 1px solid rgba(0, 0, 0, .15);
+		  	 			position: relative;
+
+		  	 			&#firstCell {
+		  	 				transition: .4s;
+		  	 			}
+
+		  	 			&.corporate_network_cell {
+		  	 				background-color: rgba(0,0,0,0.12);
+		  	 			}
+
+		  	 			&.buffer_network_cell {
+		  	 				background-color: rgba(0,0,0,0.16);
+		  	 			}
+		  	 			&.internal_network_cell {
+		  	 				background-color: rgba(0,0,0,0.2);
+		  	 			}
+		  				&.corrupted {
+		  					background-color: black;
+		  				}
+		  				&.span-2 {
+		  	 				grid-column: span 2;
+
+		  				}
+		  				&.span-3 {
+		  	 				grid-column: span 3;
+
+		  				}
+
+		  				.content {
+		  					padding-left: 50px;
+		  					padding-top: 1em;
+		  					width: 85%;
+
+
+		  					&.with-image {
+		  						display: flex;
+  								align-items: flex-start;
+
+		  						img {
+		  							padding-top: 20px;
+		  							padding-right: 30px;
+		  							width: 150px;
+		  							// min-height: 100%;
+
+		  							&.tgflag{
+		  								width: 75px;
+		  							}
+
+		  							&.pipeline {
+		  								width: 95px;
+		  							}
+		  						}		
+		  					}
+
+
+
+		  					h3 {
+		  						font-family: $h3-font;
+		  						font-size: $h3;
+		  						color: $h3-color;
+		  						line-height: 1.2em;
+
+		  						&.corrupted {
+		  							font-size: 1em;
+		  							color: $text-color-corrupted;
+		  							font-family: $corrupted-font;
+		  						}
+		  					}
+
+		  					p {
+		  						display: block;
+		  						font-family: $text-font;
+		  						color: $text-color;
+		  						font-size: $text-size;
+		  						line-height: $text-lineheight;
+
+		  						&.corrupted {
+		  							font-size: 0.8em;
+		  							line-height: 1.6em;
+		  							color: $text-color-corrupted;
+		  							font-family: $corrupted-font;
+		  						}
+		  					}
+
+		  					div.cell-name {
+		  						text-transform: uppercase;
+		  						color: $h6-color;
+
+		  						span {
+		  							font-family: 'plexSansLight', sans-serif;
+		  							font-size: $h6;
+
+			  						&.corrupted {
+			  							font-size: 0.6em;
+			  							color: $h6-corrupted-color;
+			  							font-family: $corrupted-font;
+			  							padding-right: 1em;
+			  						}
+		  						}
+			  					h6 {
+		  							display: inline-block;
+		  							font-family: $h6-font;
+		  							font-size: $h6;
+		  							text-transform: uppercase;
+		  							margin: 0;
+
+			  						&.corrupted {
+			  							font-size: 0.6em;
+			  							color: $h6-corrupted-color;
+			  							font-family: $corrupted-font;
+			  						}
+
+		  						}
+
+		  					}
+
+
+		  				}
+		  			}
+
+		  		}
+			}
+	}
+}
+
+html {
+	width: 100%;
+}
+body {
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+// tachyons like classes
+
+.hidden {
+	visibility: hidden;
+}
+
